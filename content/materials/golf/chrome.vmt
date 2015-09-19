@@ -1,0 +1,6 @@
+"vertexLitGeneric"
+{
+	"$basetexture" "golf/chrome"
+	"$envmap" "env_cubemap"
+	"$envmaptint" "[ .7 .7 .7 ]"
+}

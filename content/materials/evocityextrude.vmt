@@ -1,0 +1,12 @@
+"LightmappedGeneric"
+{
+	"$basetexture"				"evocityextrude"
+	"$bumpmap"					"evocityextrude_normal"
+	"$surfaceprop"				"Metal"
+	"$surfaceprop2"				"Metal"
+	"%keywords" 				"evocity post office lexi custom"
+    "$envmap"					"env_cubemap"
+   	"$envmaptint"				"[ .3 .3 .45 ]"
+   	"$normalmapalphaenvmapmask" "1"
+} 
+

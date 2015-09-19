@@ -1,0 +1,5 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "models/FoodNHouseholdItems/cj_cola_bottle_1"
+	"$alphatest" 1
+}

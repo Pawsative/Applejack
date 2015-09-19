@@ -1,0 +1,6 @@
+"VertexLitGeneric"
+{ 
+	"$baseTexture" "models/surgeon/citroen_war"
+	"$model" 1
+	"$surfaceprop" "metal"
+} 

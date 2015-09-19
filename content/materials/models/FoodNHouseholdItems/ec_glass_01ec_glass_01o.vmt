@@ -1,0 +1,5 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "models/FoodNHouseholdItems/ec_glass_01ec_glass_01o"
+	"$translucent" 1
+}

@@ -1,0 +1,27 @@
+"SpawnMenu"
+{
+	"Information"
+	{
+		"version"		"2"
+		"name"		"Road Signs 2"
+	}
+	"Entries"
+	{
+		"1"		"models/props/arrow.mdl"
+		"2"		"models/props/diversion.mdl"
+		"3"		"models/props/giveway.mdl"
+		"4"		"models/props/rclosed.mdl"
+		"5"		"models/props/rlight.mdl"
+		"6"		"models/props/rworks.mdl"
+		"7"		"models/props/spole.mdl"
+		"8"		"models/props/go.mdl"
+		"9"		"models/props/rabout.mdl"
+		"10"		"models/props/rslip.mdl"
+		"11"		"models/props/stop.mdl"
+		"12"		"models/props/turn.mdl"
+		"13"		"models/props/lpole.mdl"
+		"14"		"models/props/parking.mdl"
+		"15"		"models/props/scsign.mdl"
+		"16"		"models/props/gstand.mdl"		"17"		"models/props_junk/TrafficCone001a.mdl"
+	}
+}

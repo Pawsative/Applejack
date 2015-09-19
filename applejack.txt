@@ -1,0 +1,10 @@
+"applejack"
+{
+	"base"		"sandbox"
+	    "title"  "Applejack"
+	    "menusystem"	"1"
+
+	    "icon"  ""
+	    "info"  ""
+	    "hide"  "0"
+}

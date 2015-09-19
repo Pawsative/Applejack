@@ -1,0 +1,13 @@
+"vertexlitgeneric"
+{
+
+	"$baseTexture" "models/player/ct_urban/pz_comma"
+        	"$bumpmap" "models/player/ct_urban/pz_comma"
+	"$phong" "1"
+	"$phongexponent" 	"0"
+	"$phongboost"	"5"
+	"$phongfresnelranges"	"[0 0.2 1]"
+
+	
+}
+

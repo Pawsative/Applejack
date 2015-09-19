@@ -1,0 +1,242 @@
+"25"
+{
+	"Information"
+	{
+		"name"		"Food and Household items"
+	}
+	"Entries"
+	{
+		"1"
+		{
+			"model"		"models\props_junk\watermelon01.mdl"
+		}
+		"2"
+		{
+			"model"		"models\props\cs_italy\orange.mdl"
+		}
+		"3"
+		{
+			"model"		"models\props\de_inferno\crate_fruit_break_gib1.mdl"
+		}
+		"4"
+		{
+			"model"		"models\props\de_inferno\crate_fruit_break_gib2.mdl"
+		}
+		"5"
+		{
+			"model"		"models\props\cs_italy\bananna.mdl"
+		}
+		"6"
+		{
+			"model"		"models\props\cs_italy\bananna_bunch.mdl"
+		}
+		"7"
+		{
+			"model"		"models\props/CS_militia/fishriver01.mdl"
+		}
+		"8"
+		{
+			"model"		"models\FoodNHouseholdItems\fishbass.mdl"
+		}
+		"9"
+		{
+			"model"		"models\FoodNHouseholdItems\fishcatfish.mdl"
+		}
+		"10"
+		{
+			"model"		"models\FoodNHouseholdItems\fishgolden.mdl"
+		}
+		"11"
+		{
+			"model"		"models\FoodNHouseholdItems\fishrainbow.mdl"
+		}
+		"12"
+		{
+			"model"		"models\FoodNHouseholdItems\lobster.mdl"
+		}
+		"13"
+		{
+			"model"		"models\FoodNHouseholdItems\BurgerGTASA.mdl"
+		}
+		"14"
+		{
+			"model"		"models\FoodNHouseholdItems\burger.mdl"
+		}
+		"15"
+		{
+			"model"		"models\FoodNHouseholdItems\hotdog.mdl"
+		}
+		"16"
+		{
+			"model"		"models\FoodNHouseholdItems\bagette.mdl"
+		}
+		"17"
+		{
+			"model"		"models\FoodNHouseholdItems\icecream.mdl"
+		}
+		"18"
+		{
+			"model"		"models\FoodNHouseholdItems\cookies.mdl"
+		}
+		"19"
+		{
+			"model"		"models\FoodNHouseholdItems\digestive.mdl"
+		}
+		"20"
+		{
+			"model"		"models\FoodNHouseholdItems\digestive2.mdl"
+		}
+		"21"
+		{
+			"model"		"models\FoodNHouseholdItems\cokopops.mdl"
+		}
+		"22"
+		{
+			"model"		"models\FoodNHouseholdItems\chocorings.mdl"
+		}
+		"23"
+		{
+			"model"		"models\FoodNHouseholdItems\cola.mdl"
+		}
+		"24"
+		{
+			"model"		"models\FoodNHouseholdItems\colabig.mdl"
+		}
+		"25"
+		{
+			"model"		"models\FoodNHouseholdItems\sprunk1.mdl"
+		}
+		"26"
+		{
+			"model"		"models\FoodNHouseholdItems\sprunk2.mdl"
+		}
+		"27"
+		{
+			"model"		"models\FoodNHouseholdItems\champagne.mdl"
+		}
+		"28"
+		{
+			"model"		"models\FoodNHouseholdItems\champagneonplate.mdl"
+		}
+		"29"
+		{
+			"model"		"models\FoodNHouseholdItems\cake.mdl"
+		}
+		"30"
+		{
+			"model"		"models\FoodNHouseholdItems\cakepiece.mdl"
+		}
+		"31"
+		{
+			"model"		"models\FoodNHouseholdItems\pizzabox.mdl"
+		}
+		"32"
+		{
+			"model"		"models\FoodNHouseholdItems\pizzaboxbottom.mdl"
+		}
+		"33"
+		{
+			"model"		"models\FoodNHouseholdItems\pizzaboxtop.mdl"
+		}
+		"34"
+		{
+			"model"		"models\FoodNHouseholdItems\pizzaslice.mdl"
+		}
+		"35"
+		{
+			"model"		"models\FoodNHouseholdItems\\pizzaslicehalf.mdl"
+		}
+		"36"
+		{
+			"model"		"models\FoodNHouseholdItems\milk.mdl"
+		}
+		"37"
+		{
+			"model"		"models\FoodNHouseholdItems\juicesmall.mdl"
+		}
+		"38"
+		{
+			"model"		"models\FoodNHouseholdItems\juice.mdl"
+		}
+		"39"
+		{
+			"model"		"models\FoodNHouseholdItems\plate.mdl"
+		}
+		"40"
+		{
+			"model"		"models\FoodNHouseholdItems\platedirty.mdl"
+		}
+		"41"
+		{
+			"model"		"models\FoodNHouseholdItems\servingplate.mdl"
+		}
+		"42"
+		{
+			"model"		"models\FoodNHouseholdItems\servingplatedirty.mdl"
+		}
+		"43"
+		{
+			"model"		"models\FoodNHouseholdItems\champagneplate.mdl"
+		}
+		"44"
+		{
+			"model"		"models\FoodNHouseholdItems\cakeplate.mdl"
+		}
+		"45"
+		{
+			"model"		"models\FoodNHouseholdItems\champglass.mdl"
+		}
+		"46"
+		{
+			"model"		"models\FoodNHouseholdItems\soapfud.mdl"
+		}
+		"47"
+		{
+			"model"		"models\FoodNHouseholdItems\soapjizz.mdl"
+		}
+		"48"
+		{
+			"model"		"models\FoodNHouseholdItems\windowcleaner.mdl"
+		}
+		"49"
+		{
+			"model"		"models\FoodNHouseholdItems\cillitbang.mdl"
+		}
+		"50"
+		{
+			"model"		"models\FoodNHouseholdItems\cillitbanggreen.mdl"
+		}
+		"51"
+		{
+			"model"		"models\FoodNHouseholdItems\cillitbangorange.mdl"
+		}
+		"52"
+		{
+			"model"		"models\FoodNHouseholdItems\blox.mdl"
+		}
+		"53"
+		{
+			"model"		"models\FoodNHouseholdItems\lemoncleaner.mdl"
+		}
+		"54"
+		{
+			"model"		"models\FoodNHouseholdItems\newspaper1.mdl"
+		}
+		"55"
+		{
+			"model"		"models\FoodNHouseholdItems\newspaper2.mdl"
+		}
+		"56"
+		{
+			"model"		"models\FoodNHouseholdItems\trolley.mdl"
+		}
+		"57"
+		{
+			"model"		"models\FoodNHouseholdItems\balloons.mdl"
+		}
+		"58"
+		{
+			"model"		"models\FoodNHouseholdItems\balloonshappy.mdl"
+		}
+	}
+}

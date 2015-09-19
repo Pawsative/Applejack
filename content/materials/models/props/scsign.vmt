@@ -1,0 +1,6 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "models/props/scsign"
+	"$surfaceprop" "metal"
+	"$model" 1
+}

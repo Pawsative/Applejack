@@ -1,0 +1,6 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "models/props/rslip"
+	"$surfaceprop" "metal"
+	"$model" 1
+}

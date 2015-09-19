@@ -1,0 +1,6 @@
+"vertexLitGeneric"
+{
+	"$basetexture" "corvette/rear_light"
+	"$envmap" "env_cubemap"
+	"$envmaptint" "[ .3 .3 .3 ]"
+}

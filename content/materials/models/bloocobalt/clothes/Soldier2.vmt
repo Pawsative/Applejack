@@ -1,0 +1,16 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "models\bloocobalt\clothes/Soldier2"
+	"$bumpmap" "models\bloocobalt\clothes/Soldier_n"
+	"$surfaceprop" "flesh"
+	"$nocull" 1
+	"$model" "1"
+	"$selfillum" "1"
+	"$selfillumtint" "[2 1 1]"
+	"$phong" "1"
+	"$phongboost" "5"
+	"$halflambert" "1"
+	"$phongexponenttexture" "models\bloocobalt\clothes/Soldier_exp"
+	"$phongalbedotint" "1"										
+	"$phongfresnelranges"	"[.1 .5  1]"
+}

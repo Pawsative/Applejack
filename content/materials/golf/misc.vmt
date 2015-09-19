@@ -1,0 +1,8 @@
+"vertexLitGeneric"
+{
+	"$basetexture" "golf/misc"
+	"$envmap" "env_cubemap"
+	"$envmaptint" "[ .3 .3 .3 ]"
+	"$normalmapalphaenvmapmask" 1
+	"$envmapmask" "golf/misc_mask"
+}

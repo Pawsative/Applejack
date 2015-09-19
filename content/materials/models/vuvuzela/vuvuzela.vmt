@@ -1,0 +1,12 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "models\vuvuzela/vuvuzela"
+	"$bumpmap"	"models\vuvuzela/needthisforphong"
+	"$phong" "1"
+	"$phongexponent" "9"
+	"$phongboost" "1"	
+	"$phongfresnelranges"	"[.1 0.1 0.7]"
+	"$halflambert" "1"
+
+
+}

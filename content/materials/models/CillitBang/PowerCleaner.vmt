@@ -1,0 +1,5 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "models/CillitBang/PowerCleaner"
+	"$alphatest" 1
+}

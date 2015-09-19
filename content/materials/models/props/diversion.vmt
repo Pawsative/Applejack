@@ -1,0 +1,6 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "models/props/diversion"
+	"$surfaceprop" "metal"
+	"$model" 1
+}

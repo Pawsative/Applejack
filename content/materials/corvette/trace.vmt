@@ -1,0 +1,5 @@
+"vertexLitGeneric"
+{
+	"$basetexture" "corvette/trace"
+	"$translucent" 1
+}

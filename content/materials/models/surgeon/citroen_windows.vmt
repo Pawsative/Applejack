@@ -1,0 +1,8 @@
+"VertexLitGeneric"
+{ 
+	"$baseTexture" "models/surgeon/citroen"
+	"$model" 1
+	"$surfaceprop" "glass"
+	"$nocull" 1
+	"$translucent" 1
+} 

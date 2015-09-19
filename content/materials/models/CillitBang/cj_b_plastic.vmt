@@ -1,0 +1,5 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "models/CillitBang/cj_b_plastic"
+	"$alphatest" 1
+}

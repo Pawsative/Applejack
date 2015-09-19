@@ -1,0 +1,8 @@
+// envmaptint_fix
+"VertexLitGeneric"
+{
+	// Original shader: VertexLitTexture
+	"$basetexture" "models/Weapons/V_hand/v_hand_sheet"
+	"$bumpmap" "models/Weapons/V_hand/v_hand_sheet_normal"
+	"$normalmapalphaenvmapmask" 1
+}

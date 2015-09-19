@@ -1,0 +1,5 @@
+"vertexLitGeneric"
+{
+	"$basetexture" "corvette/glass_inside"
+	"$translucent" 1
+}

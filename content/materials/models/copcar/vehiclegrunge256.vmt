@@ -1,0 +1,6 @@
+"vertexLitGeneric"
+{
+
+	$envmapcontrast 1
+        $basetexture "models/copcar/vehiclegrunge256"
+}

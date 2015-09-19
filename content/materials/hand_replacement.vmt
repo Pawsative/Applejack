@@ -1,0 +1,8 @@
+// envmaptint_fix
+"VertexLitGeneric"
+{
+	// Original shader: VertexLitTexture
+	"$basetexture" "hand_replacement"
+	"$bumpmap" "hand_replacement_normal"
+	"$normalmapalphaenvmapmask" 1
+}

@@ -1,0 +1,6 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "models/props/rlight"
+	"$surfaceprop" "metal"
+	"$model" 1
+}

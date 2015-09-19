@@ -1,0 +1,36 @@
+"vmodtire1"
+{
+	"base"			"rubber"
+
+	"bulletimpact"	"Rubber_Tire.BulletImpact"
+	"impacthard"	"Rubber_Tire.ImpactHard"
+	"impactsoft"	"Rubber_Tire.ImpactSoft"
+
+//	"strain"		"Rubber_Tire.Strain"
+
+	"friction"		"2.25"
+}
+
+"slidingrubbertire"
+{
+	"base"			"rubber"
+	"friction"		"0.2"
+}
+
+"brakingrubbertire"
+{
+	"base"			"rubber"
+	"friction"		"0.6"
+}
+
+"slidingrubbertire_front"
+{
+	"base"			"rubber"
+	"friction"		"0.2"
+}
+
+"slidingrubbertire_rear"
+{
+	"base"			"rubber"
+	"friction"		"0.2"
+}

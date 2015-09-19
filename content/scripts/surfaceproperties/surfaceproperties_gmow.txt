@@ -1,0 +1,191 @@
+// Surface properties for GMOW v3
+"ubertire"
+{
+	"base"			"rubber"
+
+	"bulletimpact"	"Rubber_Tire.BulletImpact"
+	"impacthard"	"Rubber_Tire.ImpactHard"
+	"impactsoft"	"Rubber_Tire.ImpactSoft"
+
+	"strain"		"Rubber_Tire.Strain"
+
+	"friction"		"15.0"
+
+}
+
+
+"enzotire"
+{
+	"base"			"rubber"
+
+	"bulletimpact"	"Rubber_Tire.BulletImpact"
+	"impacthard"	"Rubber_Tire.ImpactHard"
+	"impactsoft"	"Rubber_Tire.ImpactSoft"
+
+//	"strain"		"Rubber_Tire.Strain"
+
+	"friction"		"2.337"
+
+}
+
+
+"pathmtire"
+{
+	"base"			"rubber"
+
+	"bulletimpact"	"Rubber_Tire.BulletImpact"
+	"impacthard"	"Rubber_Tire.ImpactHard"
+	"impactsoft"	"Rubber_Tire.ImpactSoft"
+
+//	"strain"		"Rubber_Tire.Strain"
+
+	"friction"		"2.5"
+
+}
+
+"rigmtire"
+{
+	"base"			"rubber"
+
+	"bulletimpact"	"Rubber_Tire.BulletImpact"
+	"impacthard"	"Rubber_Tire.ImpactHard"
+	"impactsoft"	"Rubber_Tire.ImpactSoft"
+
+//	"strain"		"Rubber_Tire.Strain"
+
+	"friction"		"4.0"
+
+}
+
+
+"hummertire"
+{
+	"base"			"rubber"
+
+	"bulletimpact"	"Rubber_Tire.BulletImpact"
+	"impacthard"	"Rubber_Tire.ImpactHard"
+	"impactsoft"	"Rubber_Tire.ImpactSoft"
+
+//	"strain"		"Rubber_Tire.Strain"
+
+	"friction"		"2.0"
+
+}
+
+"dj_tech1"
+{
+	"base"			"metal"
+
+	"bulletimpact"	"djtech1"
+	"impacthard"	"djpoos"
+	"impactsoft"	"djpoos"
+
+//	"strain"		"Rubber_Tire.Strain"
+
+	"friction"		"1.0"
+
+}
+
+
+"dj_tech2"
+{
+	"base"			"metal"
+
+	"bulletimpact"	"djtech2"
+	"impacthard"	"djpoos"
+	"impactsoft"	"djpoos"
+
+//	"strain"		"Rubber_Tire.Strain"
+
+	"friction"		"1.0"
+
+}
+
+
+"dj_rock"
+{
+	"base"			"metal"
+
+	"bulletimpact"	"djrock"
+	"impacthard"	"djpoos"
+	"impactsoft"	"djpoos"
+
+//	"strain"		"Rubber_Tire.Strain"
+
+	"friction"		"1.0"
+
+}
+
+
+"dj_back"
+{
+	"base"			"metal"
+
+	"bulletimpact"	"djback"
+	"impacthard"	"djpoos"
+	"impactsoft"	"djpoos"
+
+//	"strain"		"Rubber_Tire.Strain"
+
+	"friction"		"1.0"
+
+}
+
+
+"dj_dnb"
+{
+	"base"			"metal"
+
+	"bulletimpact"	"djdnb"
+	"impacthard"	"djpoos"
+	"impactsoft"	"djpoos"
+
+//	"strain"		"Rubber_Tire.Strain"
+
+	"friction"		"1.0"
+
+}
+
+
+"dj_what"
+{
+	"base"			"metal"
+
+	"bulletimpact"	"djwhat"
+	"impacthard"	"djpoos"
+	"impactsoft"	"djpoos"
+
+//	"strain"		"Rubber_Tire.Strain"
+
+	"friction"		"1.0"
+
+}
+
+"dj_tech3"
+{
+	"base"			"metal"
+
+	"bulletimpact"	"djtech3"
+	"impacthard"	"djpoos"
+	"impactsoft"	"djpoos"
+
+//	"strain"		"Rubber_Tire.Strain"
+
+	"friction"		"1.0"
+
+}
+
+
+"dj_tech4"
+{
+	"base"			"metal"
+
+	"bulletimpact"	"djtech4"
+	"impacthard"	"djpoos"
+	"impactsoft"	"djpoos"
+
+//	"strain"		"Rubber_Tire.Strain"
+
+	"friction"		"1.0"
+
+}

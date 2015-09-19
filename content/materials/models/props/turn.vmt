@@ -1,0 +1,6 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "models/props/turn"
+	"$surfaceprop" "metal"
+	"$model" 1
+}
