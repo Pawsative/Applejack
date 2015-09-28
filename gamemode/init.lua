@@ -131,25 +131,25 @@ function GM:Initialize()
 end
 
 function MakeTables()
+ --Delay because the SQL Doesn't fully load untill a player joins.
 	timer.Simple(5, function()
 		if self.DB then
-		self.DB:query([[
-			CREATE TABLE IF NOT EXISTS `players`
-			`_RPName` longtext NOT NULL,
-			`_Key` int(11) NOT NULL,
-			`_Name` longtext NOT NULL,
-			`_Clan` longtext NOT NULL,
-			`_Description` longtext NOT NULL,
-			`_SteamID` longtext NOT NULL,
-			`_UniqueID` longtext NOT NULL,
-			`_Access` longtext NOT NULL,
-			`_Donator` longtext NOT NULL,
-			`_Arrested` longtext NOT NULL,
-			`_Inventory` longtext NOT NULL,
-			`_Blacklist` longtext NOT NULL,
-			`_Misc` longtext NOT NULL,
-			PRIMARY KEY (`_Key`)
-		]])
+			self.DB:query([[
+				CREATE TABLE IF NOT EXISTS `players`
+				`_RPName` longtext NOT NULL,
+				`_Key` int(11) NOT NULL PRIMARY KEY,
+				`_Name` longtext NOT NULL,
+				`_Clan` longtext NOT NULL,
+				`_Description` longtext NOT NULL,
+				`_SteamID` longtext NOT NULL,
+				`_UniqueID` longtext NOT NULL,
+				`_Access` longtext NOT NULL,
+				`_Donator` longtext NOT NULL,
+				`_Arrested` longtext NOT NULL,
+				`_Inventory` longtext NOT NULL,
+				`_Blacklist` longtext NOT NULL,
+				`_Misc` longtext NOT NULL
+			]])
 		end
 	end)
 end
