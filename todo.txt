@@ -1,0 +1,15 @@
+TODO List:
+
+Change from GLON to JSON.
+Re-Write SQL, make it faster.
+Make SQL Change each query, not every 5 seconds.
+New F1 menu.
+Fix some bugs. (Like, if someones name is nobody, they can't buy doors).
+Make ULX work with gamemode.
+Custom admin addons? (Edit inventory, etc)
+Better documentation for gamemode. (Commands, functions, hooks etc)
+Lower cave slaying on rp_evocity_v2d. Currently slays them if they go past the paintball field.
+
+KNOWN BUGS:
+If your name is nobody ingame, you can't buy doors. (It sets the door owner to nobody in the base code...)
+ULX Stops the player from spawning due to it overwriting hooks.
