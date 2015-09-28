@@ -7,9 +7,9 @@ function includecs(file)
 	AddCSLuaFile(file);
 end
 
-GM.Name = "The Purge (CityRP)";
+GM.Name = "Applejack";
 GM.Email = "";
-GM.Author = "";
+GM.Author = "Kudomiku, Lexi";
 GM.Website = "";
 
 GM.LuaFolder = string.sub(GM.Folder,11,-1)

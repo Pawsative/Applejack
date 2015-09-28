@@ -10,9 +10,9 @@ PANEL.credits = [[
 [Credits]
 kuromeku - Made the core systems of Cider, populated it with items and released it.
 Lexi - Vast swathes of improvements to the script, going with the philosophy that "Light RP doesn't have to be shit."
-Pawsative - Conversion of the Gamemode. (Main re-fixer)
-rayts - Conversion of the Gamemode. (Mainly clientside).
-Int64 - Conversion of the Gamemode. (Main re-fixer)
+Pawsative - Conversion of the Gamemode.
+rayts - Conversion of the Gamemode.
+Int64 - Conversion of the Gamemode.
 
 ]]
 
