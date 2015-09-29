@@ -6,9 +6,12 @@ Name: "cl_credits.lua".
 local PANEL = {};
 
 -- Store the credits in a string.
+
+
+--If you're going to edit this, please leave the top 2 authors in this file, as they're the ones who actually MADE this gamemode.
 PANEL.credits = [[
 [Credits]
-kuromeku - Made the core systems of Cider, populated it with items and released it.
+kurozael (Conna) - Made the core systems of Cider, populated it with items and released it.
 Lexi - Vast swathes of improvements to the script, going with the philosophy that "Light RP doesn't have to be shit."
 Pawsative - Conversion of the Gamemode.
 rayts - Conversion of the Gamemode.

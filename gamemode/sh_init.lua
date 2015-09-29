@@ -9,7 +9,7 @@ end
 
 GM.Name = "Applejack";
 GM.Email = "";
-GM.Author = "Kudomiku, Lexi";
+GM.Author = "kurozael (Conna), Lexi";
 GM.Website = "";
 
 GM.LuaFolder = string.sub(GM.Folder,11,-1)
