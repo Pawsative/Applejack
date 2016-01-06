@@ -112,25 +112,7 @@ function GM:Initialize()
 	end
 
 	self.DB.OnConnected = function()
-			--THIS IS JUST TEMPORARY.
-			local qq = self.DB:query([[
-				CREATE TABLE IF NOT EXISTS `players`
-				`_RPName` longtext NOT NULL,
-				`_Key` int(11) NOT NULL PRIMARY KEY,
-				`_Name` longtext NOT NULL,
-				`_Clan` longtext NOT NULL,
-				`_Description` longtext NOT NULL,
-				`_SteamID` longtext NOT NULL,
-				`_UniqueID` longtext NOT NULL,
-				`_Access` longtext NOT NULL,
-				`_Donator` longtext NOT NULL,
-				`_Arrested` longtext NOT NULL,
-				`_Inventory` longtext NOT NULL,
-				`_Blacklist` longtext NOT NULL,
-				`_Misc` longtext NOT NULL
-			]])
 
-			qq:start();
 
 		print("Successfully connected to database!")
 		timer.Create("mysqloo.checkConnection", 30, 0, function()
