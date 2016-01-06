@@ -25,12 +25,7 @@ You will need evolve or exsto (for now) for this gamemode to work properly, and 
 
 If you need help, feel free to PM me on facepunch. 
 
-http://facepunch.com/member.php?u=698265
-
-Or add me on steam:
-
-http://steamcommunity.com/id/Pawsativehi
-
 Please stop trying to sell this gamemode.
 
-Also, cider is coming soon.
+##IMPORTANT:
+I will no longer be giving support for this gamemode, unless a Garry's Mod update breaks it. As of 1/6/2016 I have tested it, and it works as intended.
