@@ -9,13 +9,10 @@ Make sure the folder name is applejack, not applejack-master, and put the folder
 Edit the sh_config.lua and sv_config.lua to your liking.
 
 ----------------------------------------------------
-You can either do this:
+Login to PHPMyAdmin, make a new user + database, and import the players.sql
+After doing that, open up your sh_config.lua, and fill in the details. Do not touch the "players" part, as importing the .sql does that automatically.
 
-Import the .sql file into your database, & make sure you have MySQLOO in your garrysmod/lua/bin folder. (If you don't have it, just make it).
-
-Or:
-
-Add the gamemode to your server, start the server & then restart it so it can make the tables.
+If you get any errors, it's probarly because you didn't setup your SQL correctly.
 ----------------------------------------------------
 
 (You'll also need libmysql, you can get that from the same place as MySQLOO)
