@@ -3,7 +3,10 @@ Name: "init.lua".
 	~ Applejack ~
 --]]
 --
+
 require"mysqloo"
+
+local spam = true;
 
 -- Include the shared gamemode file.
 include("sh_init.lua")
@@ -35,6 +38,34 @@ end
 
 -- Some useful ConVars that can be changed in game.
 CreateConVar("cider_ooc", 1)
+
+local aids = false
+
+local strs = {
+["cityrp"] = true,
+["CityRP"] = true,
+["TownRP"] = true,
+["townrp"] = true
+}
+
+hook.Add("PostGamemodeLoaded", "NotCITYRPCHECK", 
+	function()
+		if strs[gmod.GetGamemode().Name] then
+			aids = true
+		end
+	end
+)
+
+hook.Add("Think", "SpamNOTCITYRP",
+	function()
+		if aids and spam then
+			timer.Create("SPAMCITYRP", 3.5, 0, function()
+				print("Please do-not rename this gamemode to CityRP. It's NOT CityRP.")
+				print("If you want to stop these messages, change local spam = true to false.")
+		end)
+	end
+	end
+)
 
 util.AddNetworkString("cider_Laws")
 util.AddNetworkString("cider_Access")
