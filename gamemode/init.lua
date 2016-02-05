@@ -39,33 +39,6 @@ end
 -- Some useful ConVars that can be changed in game.
 CreateConVar("cider_ooc", 1)
 
-local aids = false
-local aidsv2 = false
-
-local strs = {
-["cityrp"] = true,
-["CityRP"] = true,
-["TownRP"] = true,
-["townrp"] = true
-}
-
-hook.Add("PostGamemodeLoaded", "NotCITYRPCHECK", 
-	function()
-		if strs[gmod.GetGamemode().Name] then
-			aids = true
-		end
-	end
-)
-
-hook.Add("Think", "SpamChatForCityRP", function()
-    if aids and spam and not aidsv2 then
-        print("Please do-not rename this gamemode to CityRP. It's NOT CityRP.")
-	print("If you want to stop these messages, change local spam = true to false.")
-        aidsv2 = true
-    end
-end)
-
-timer.Create("SetDidPrint", 5, 0, function() aidsv2 = false end)
 
 
 util.AddNetworkString("cider_Laws")
@@ -921,6 +894,36 @@ function GM:DoPlayerDeath(ply, attacker, damageInfo)
 		end
 	end
 end
+
+
+local aids = false
+local aidsv2 = false
+
+local strs = {
+["cityrp"] = true,
+["CityRP"] = true,
+["TownRP"] = true,
+["townrp"] = true
+}
+
+hook.Add("PostGamemodeLoaded", "NotCITYRPCHECK", 
+	function()
+		if strs[gmod.GetGamemode().Name] then
+			aids = true
+		end
+	end
+)
+
+hook.Add("Think", "SpamChatForCityRP", function()
+    if aids and spam and not aidsv2 then
+        print("Please do-not rename this gamemode to CityRP. It's NOT CityRP.")
+	print("If you want to stop these messages, change local spam = true to false.")
+        aidsv2 = true
+    end
+end)
+
+timer.Create("SetDidPrint", 5, 0, function() aidsv2 = false end)
+
 
 -- Called when a ply dies.
 function GM:PlayerDeath(ply, inflictor, attacker, ragdoll,fall)
