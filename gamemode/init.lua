@@ -40,6 +40,7 @@ end
 CreateConVar("cider_ooc", 1)
 
 local aids = false
+local aidsv2 = false
 
 local strs = {
 ["cityrp"] = true,
@@ -56,16 +57,16 @@ hook.Add("PostGamemodeLoaded", "NotCITYRPCHECK",
 	end
 )
 
-hook.Add("Think", "SpamNOTCITYRP",
-	function()
-		if aids and spam then
-			timer.Create("SPAMCITYRP", 3.5, 0, function()
-				print("Please do-not rename this gamemode to CityRP. It's NOT CityRP.")
-				print("If you want to stop these messages, change local spam = true to false.")
-		end)
-	end
-	end
-)
+hook.Add("Think", "SpamChatForCityRP", function()
+    if aids and spam and not aidsv2 then
+        print("Please do-not rename this gamemode to CityRP. It's NOT CityRP.")
+	print("If you want to stop these messages, change local spam = true to false.")
+        aidsv2 = true
+    end
+end)
+
+timer.Create("SetDidPrint", 5, 0, function() aidsv2 = false end)
+
 
 util.AddNetworkString("cider_Laws")
 util.AddNetworkString("cider_Access")
