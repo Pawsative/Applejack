@@ -7,7 +7,8 @@ PLUGIN.Name = "Stamina";
 
 
 function AntiJump(ply, bind, pressed)
-	if bind == "+jump" and pressed and ply._Stamina < 10 then
+	local stamina = ply._Stamina or 0
+	if bind == "+jump" and pressed and stamina < 10 then
 		return true
 	end
 end
