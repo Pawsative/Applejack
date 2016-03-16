@@ -109,11 +109,15 @@ function GM:Initialize()
 	-- Initialize a connection to the MySQL database.
 	self.DB, err = mysqloo.connect(self.Config["MySQL Host"], self.Config["MySQL Username"], self.Config["MySQL Password"], self.Config["MySQL Database"], 3306)
 	if (!self.DB) then
-		ErrorNoHalt("DB Connection error: "..err)
+		error("You didn't setup the SQL correctly!")
 	end
 
 	self.DB.OnError = function(self, err)
 		print("DB Connection error: "..err)
+	end
+
+	self.DB.OnConnectionFailed(self, err)
+		error("You didn't setup the SQL Correctly!\n Here's what I got: \n "..err)
 	end
 
 	self.DB.OnConnected = function()
