@@ -1,3 +1,6 @@
+##IMPORTANT:
+I will no longer be giving support for this gamemode, unless a Garry's Mod update breaks it. As of 1/6/2016 I have tested it, and it works as intended. Like seriously, I'm 100% not supporting this anymore, I have too much stuff to deal with so please stop adding me. It's working as intended on 5/22/2016.
+
 # Important:
 You will need a MySQL database, and MySQLOO V8.
 
