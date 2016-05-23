@@ -116,7 +116,7 @@ function GM:Initialize()
 		print("DB Connection error: "..err)
 	end
 
-	self.DB.OnConnectionFailed(self, err)
+	self.DB.OnConnectionFailed = function(self, err)
 		error("You didn't setup the SQL Correctly!\n Here's what I got: \n "..err)
 	end
 
