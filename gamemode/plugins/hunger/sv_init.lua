@@ -65,7 +65,7 @@ function PLUGIN:PlayerSecond(player)
 	if (not (player._Hunger.amount == 100 and (player:Health() > damage or GM.Config["Hunger Death"] or player:KnockedOut()))) then
 		return
 	end
-	local world = game.GetWorldEntity();
+	local world = game.GetWorld()
 
 	-- Check if the player is knocked out.
 	if (player:KnockedOut() and IsValid(player.ragdoll.entity)) then
