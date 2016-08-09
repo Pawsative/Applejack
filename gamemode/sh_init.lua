@@ -15,7 +15,7 @@ GM.Website = "";
 GM.LuaFolder = string.sub(GM.Folder,11,-1)
 includecs("glon.lua")
 -- Derive the gamemode from sandbox.
-DeriveGamemode("Sandbox");
+DeriveGamemode("sandbox");
 
 function math.DecimalPlaces(numb,places)
 	return math.Round(numb*10^places)/10^places
