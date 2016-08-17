@@ -22,8 +22,6 @@ function PLUGIN:KeyPress(player, key)
 			end
 		end
 	end
-	
-	AntiJump()
 end
 
 -- Called every tenth of a second that a player is on the server.
