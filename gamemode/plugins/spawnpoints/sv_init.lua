@@ -14,13 +14,13 @@ PLUGIN.Spawnpoints = {};
 
 function PLUGIN:LoadData()
 	local path, data, status, results;
-path = game.GetMap()..".txt"
+	path = "applejack/spawnpoints/"..string.lower(game.GetMap())..".txt"
 
 	if !file.Exists(path, "DATA") then
 		return
 	end
 	data = file.Read(path, "DATA");
-	status, results = pcall(glon.decode,data);
+	status, results = pcall(util.JSONToTable,data);
 	if (status == false) then
 		error("Error GLON decoding '"..path.."': "..results);
 	elseif (not results) then
@@ -38,14 +38,14 @@ end
 function PLUGIN:SaveData()
 	local data,tocode,status,result,path;
 	tocode = {};
-	path = game.GetMap()..".txt"
+	path = "applejack/spawnpoints/"..string.lower(game.GetMap())..".txt"
 	for index, spawns in pairs(self.Spawnpoints) do
 		data = cider.team.get(index);
 		if (data) then
 			tocode[data.name] = spawns; --Indexes change, names tend not to.
 		end
 	end
-	status, result = pcall(glon.encode,tocode);
+	status, result = pcall(util.TableToJSON,tocode);
 	if (status == false) then
 		error("["..os.date().."] Spawnpoints Plugin: Error GLON encoding spawnpoints : "..results);
 	end

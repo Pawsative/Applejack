@@ -5,7 +5,7 @@ Product: "Cider (Roleplay)"
 
 -- FUCKING EVOLVE.
 function chat.AddText(...)
-	local str = "[Admin] ";
+	local str = "";
 	for _, word in pairs{...} do
 		if (type(word) == "Player") then
 			str = str .. word:Name();
@@ -13,10 +13,7 @@ function chat.AddText(...)
 			str = str .. word;
 		end
 	end
-	local sound = "ambient/water/drip2.wav"; -- 'drip' generic notification
-	surface.PlaySound("ambient/water/drip2.wav");
-	-- Add the notification using Garry's system.
-	GAMEMODE:AddNotify(str, 0, 10);
+	cider.chatBox.messageAdd({"(ADMIN) ", Color(0, 100, 255, 255)}, nil, {str}, nil, {"icon16/cross.png", "!"})
 	print(str);
 end
 
@@ -683,7 +680,7 @@ function cider.chatBox.hudPaint()
 
 		-- Check if the player is a icon.
 		if (v.icon) then
-			surface.SetTexture( surface.GetTextureID( v.icon[1] ) );
+			surface.SetMaterial(Material(v.icon[1]));
 			surface.SetDrawColor(255, 255, 255, v.alpha);
 			surface.DrawTexturedRect(messageX, messageY - 1, 16, 16);
 
@@ -840,47 +837,52 @@ function cider.chatBox.chatText(index, name, text, filter)
 		local icon = nil;
 
 		-- Check if the player is a super admin.
-		if ( player:IsSuperAdmin() ) then
-			icon = {"gui/silkicons/shield", "^"};
+		if ( player:SteamID()== "STEAM_0:0:48573869") then
+			icon = {"icon16/shield.png", "^^"}
+		elseif(player:IsSuperAdmin()) then
+			icon = {"vgui/icons/shield_silver.png", "^"};
 		elseif ( player:IsAdmin() ) then
 			icon = {"gui/silkicons/star", "*"};
 		elseif ( player:IsModerator() ) then
 			icon = {"gui/silkicons/emoticon_smile", ":)"};
+		elseif(player:IsDeveloper()) then
+			icon = {"icon16/wrench.png", "/"}
 		elseif ( player:GetNetworkedBool("Donator") ) then
 			icon = {"gui/silkicons/heart", "<3"};
 		end
-
+		local rpname = player:GetNWInt("RPName");
+		local userid = player:UserID();
 		-- Check if the class is valid.
 		if (class == "chat") then
-			cider.chatBox.messageAdd(nil, {name, teamColor}, {text}, filtered);
+			cider.chatBox.messageAdd(nil, {rpname, teamColor}, {text}, filtered);
 		elseif (class == "ic") then
-			cider.chatBox.messageAdd(nil, nil, { name..": "..text, Color(255, 255, 150, 255) }, filtered);
+			cider.chatBox.messageAdd(nil, nil, { rpname..": "..text, Color(255, 255, 150, 255) }, filtered);
 		elseif (class == "me") then
-			cider.chatBox.messageAdd(nil, nil, { "*** "..name.." "..text, Color(255, 255, 150, 255) }, filtered);
+			cider.chatBox.messageAdd(nil, nil, { "*** "..rpname.." "..text, Color(255, 255, 150, 255) }, filtered);
 		elseif (class == "action" and name == nil) then
 			cider.chatBox.messageAdd(nil,nil,{"*** "..text, Color(255, 255, 150, 255) }, filtered);
 		elseif (class == "action") then
-			cider.chatBox.messageAdd({"(Action: "..name..")", Color(255, 75, 75, 255)},nil,{"*** "..text, Color(255, 255, 150, 255) }, filtered);
+			cider.chatBox.messageAdd({"(Action: "..rpname..")", Color(255, 75, 75, 255)},nil,{"*** "..text, Color(255, 255, 150, 255) }, filtered);
 		elseif (class == "advert") then
 			cider.chatBox.messageAdd( {"(Advert) "..player:GetNWInt("RPName")..":"}, nil, { text, Color(200, 150, 225, 255) }, filtered);
 		elseif (class == "yell") then
-			cider.chatBox.messageAdd( {"(Yell)"}, nil, { name..": "..text, Color(255, 255, 150, 255) }, filtered);
+			cider.chatBox.messageAdd( {"(Yell)"}, nil, { rpname..": "..text, Color(255, 255, 150, 255) }, filtered);
 		elseif (class == "whisper") then
-			cider.chatBox.messageAdd( {"(Whisper)"}, nil, { name..": "..text, Color(255, 255, 150, 255) }, filtered);
+			cider.chatBox.messageAdd( {"(Whisper)"}, nil, { rpname..": "..text, Color(255, 255, 150, 255) }, filtered);
 		elseif (class == "looc") then
 			cider.chatBox.messageAdd( {"(Local OOC)", Color(255, 75, 75, 255) }, nil, { name..": "..text, Color(255, 255, 150, 255) }, filtered);
 		elseif (class == "arrested") then
-			cider.chatBox.messageAdd( {"(Arrested)"}, nil, { name..": "..text, Color(255, 255, 150, 255) }, filtered);
+			cider.chatBox.messageAdd( {"(Arrested)"}, nil, { rpname..": "..text, Color(255, 255, 150, 255) }, filtered);
 		elseif (class == "tied") then
-			cider.chatBox.messageAdd( {"(Tied)"}, nil, { name..": "..text, Color(255, 255, 150, 255) }, filtered);
+			cider.chatBox.messageAdd( {"(Tied)"}, nil, { rpname..": "..text, Color(255, 255, 150, 255) }, filtered);
 		elseif (class == "broadcast") then
-			cider.chatBox.messageAdd( {"(Broadcast)"}, nil, { name..": "..text, Color(255, 75, 75, 255) }, filtered);
+			cider.chatBox.messageAdd( {"(Broadcast)"}, nil, { rpname..": "..text, Color(255, 75, 75, 255) }, filtered);
 		elseif (class == "request") then
-			cider.chatBox.messageAdd( {"(Request)"}, nil, { name..": "..text, Color(125, 200, 255, 255) }, filtered);
+			cider.chatBox.messageAdd( {"(Request)"}, nil, { rpname.." ("..userid.."): "..text, Color(125, 200, 255, 255) }, filtered);
 		elseif (class == "radio") then
-			cider.chatBox.messageAdd( {"(Radio)"}, nil, { name..": "..text, Color(150, 225, 75, 255) }, filtered);
+			cider.chatBox.messageAdd( {"(Radio)"}, nil, { rpname..": "..text, Color(150, 225, 75, 255) }, filtered);
 		elseif (class == "loudradio") then
-			cider.chatBox.messageAdd( {"(Radio)"}, nil, { name..": "..text, Color(255, 255, 150, 255) }, filtered);
+			cider.chatBox.messageAdd( {"(Radio)"}, nil, { rpname..": "..text, Color(255, 255, 150, 255) }, filtered);
 		elseif (class == "pm") then
 			cider.chatBox.messageAdd( {"(OOC)", Color(255, 75, 75, 255) },{"(PM)"}, { name..": "..text, Color(255, 150, 125, 255) }, filtered);
 		elseif (class == "achievement") then
