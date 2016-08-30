@@ -20,13 +20,13 @@ function PLUGIN:LoadDoors()
 	local data, path, status, entity; -- Unimportant vars
 	self.Doors = {}
 	-- Check there is actually data for us to load
-	path = GM.LuaFolder.."/doors/"..game.GetMap()..".txt"
+	path = "applejack/unownable/"..string.lower(string.lower(game.GetMap())..".txt"
 	if (not file.Exists(path, "DATA")) then
 		return
 	end
 	-- Load the data and attempt to decode it
 	data = file.Read(path, "DATA");
-	status, results = pcall(glon.decode, data);
+	status, results = pcall(util.JSONToTable, data);
 	if (status == false) then -- Yes I know 'not status' is the same thing but this looks nicer in the circumstances.
 		error("["..os.date().."] Doors Plugin: Error GLON decoding '"..path.."': "..results);
 	elseif (not results) then -- If we end up with an empty table, why bother doing more?
@@ -42,7 +42,7 @@ function PLUGIN:LoadDoors()
 	end
 	numents = #validents;
 	if (numents < 1) then -- You never know.
-		error("["..os.date().."] Doors Plugin: a "..#results.." long file exists for "..game.GetMap().." but it has no suitable entities!");
+		error("["..os.date().."] Doors Plugin: a "..#results.." long file exists for "..string.lower(game.GetMap().." but it has no suitable entities!");
 	end
 	radiussquared = 1; -- Our SQUARED search radius. A 1r sphere should do the job fine.
 	for i = 1, #results do-- Loop through our results
@@ -137,11 +137,11 @@ function PLUGIN:SaveData()
 	if (count < 1) then
 		return
 	end
-	status, result = pcall(glon.encode, tocode); -- Encode the data with glon.
+	status, result = pcall(util.TableToJSON, tocode); -- Encode the data with glon.
 	if (status == false) then
-		error("["..os.date().."] Doors Plugin: Error GLON encoding "..game.GetMap().."'s door data: "..result);
+		error("["..os.date().."] Doors Plugin: Error GLON encoding "..string.lower(game.GetMap().."'s door data: "..result);
 	end
-	file.Write(GM.LuaFolder.."/doors/"..game.GetMap()..".txt", tostring(result));
+	file.Write("applejack/unownable/"..string.lower(game.GetMap()..".txt", tostring(result));
 end
 
 function PLUGIN:EntityNameSet(door, name)

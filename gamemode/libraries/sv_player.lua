@@ -40,6 +40,7 @@ player.loadKnownKeys = {
 	_Clan		= "string";
 	_Description = "string";
 	_Access		= "string";
+	_playtime = "number";
 };
 
 ---

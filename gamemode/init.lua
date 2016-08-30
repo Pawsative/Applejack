@@ -515,10 +515,6 @@ end
 --Called when a player connectsf
 function GM:PlayerConnect(name,ip,steamID)
 	print(string.format("Player connected %q, (%s): %s,",name,ip,steamID))
-	if name == "kickme" then
-		print"kick teh fag"
-		game.ConsoleCommand("kick "..name.."\n")
-	end
 end
 
 --Called when a ply has authed
@@ -650,7 +646,6 @@ function GM:PlayerDataLoaded(ply, success)
 			ply:Freeze(false)
 			-- We can now start updating the player's data.
 			ply._UpdateData = true
-
 			-- Send a user message to remove the loading screen.
 			umsg.Start("cider.player.initialized", ply) umsg.End()
 		end

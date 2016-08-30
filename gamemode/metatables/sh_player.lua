@@ -18,6 +18,14 @@ function meta:IsModerator()
 	return self:IsAdmin() or self:GetNWBool("Moderator");
 end
 
+function meta:IsDeveloper()
+	return self:GetUserGroup()== "developer";
+end
+function meta:IsSuperDeveloper()
+	return self:GetUserGroup()== "superdeveloper" or self:IsSuperAdmin();
+end
+
+
 ---
 -- Gets the physical ragdoll made by player:KnockOut().
 -- @return A vaild entity if the player is ragdolled, NULL else.

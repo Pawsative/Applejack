@@ -10,12 +10,12 @@ PLUGIN.Prisonpoints = {};
 function PLUGIN:LoadData()
 	local path, data, status, results;
 
-	path = GM.LuaFolder.."/prisonpoints/"..game.GetMap()..".txt";
+	path = "applejack/prisonpoints/"..string.lower(game.GetMap())..".txt";
 	if (not file.Exists(path, "DATA")) then
 		return
 	end
 	data = file.Read(path, "DATA");
-	status, results = pcall(glon.decode,data);
+	status, results = pcall(util.JSONToTable, data);
 	if (status == false) then
 		error("Error GLON decoding '"..path.."': "..results);
 	elseif (not results) then
@@ -28,12 +28,12 @@ function PLUGIN:SaveData()
 --	print("savedata!");
 	local data,status,result,path;
 --	PrintTable(self.Prisonpoints);
-	status, result = pcall(glon.encode,self.Prisonpoints);
+	status, result = pcall(util.TableToJSON, self.Prisonpoints);
 --	print("status",status,"result",result);
 	if (status == false) then
 		error("["..os.date().."] Prisonpoints Plugin: Error GLON encoding prisonpoints : "..results);
 	end
-	path = GM.LuaFolder.."/prisonpoints/"..game.GetMap()..".txt";
+	path = "applejack/prisonpoints/"..string.lower(game.GetMap())..".txt";
 --	print("path",path);
 	if (not result or result == "") then
 --		print("no result");

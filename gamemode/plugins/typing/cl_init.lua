@@ -15,7 +15,7 @@ function PLUGIN:AdjustESPLines(lines,tent,pos,distance,lookingat)
 	local player = IsValid( tent:GetNetworkedEntity("Player")) and tent:GetNetworkedEntity("Player") or tent
 	if player:IsPlayer() and  player:GetNetworkedBool("cider_Typing") then
 		lines:ShiftWeightDown(1,1) -- Make everything under the player's name drop by one
-		lines:Add("Talking","Talking",color_white,2)
+		lines:Add("Thinking", "Thinking", color_white,2)
 	end
 end
 
