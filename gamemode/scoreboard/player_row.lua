@@ -35,6 +35,45 @@ local lpl = LocalPlayer()
 	
 	self.imgAvatar = vgui.Create( "AvatarImage", self )
 	
+	self.lblName.DoRightClick = function()
+		local menu = DermaMenu();
+
+		menu:AddOption( "Open player's steam community profile", function() gui.OpenURL("http://www.steamcommunity.com/profiles/" .. self.Player:SteamID64()) end):SetImage( "icon16/world.png" );
+		menu:AddSpacer();
+		menu:AddOption( "Name: "..self.Player:Nick().." (ID: "..self.Player:UserID()..")", function() SetClipboardText( self.Player:Nick() ) LocalPlayer():ChatPrint( "Copied to clipboard!" ) end):SetImage( "icon16/user_gray.png" );
+		menu:AddOption( "SteamID: "..self.Player:SteamID(), function() SetClipboardText( self.Player:SteamID() ) LocalPlayer():ChatPrint( "Copied to clipboard!" ) end):SetImage( "icon16/vcard.png" );
+		menu:AddSpacer();
+
+		menu:AddOption( "In-game name: "..self.Player:GetNWInt( "RPName" ), function() SetClipboardText( self.Player:GetNWInt( "RPName" ) ) LocalPlayer():ChatPrint( "Copied to clipboard!" ) end):SetImage( "icon16/user.png" );
+		menu:AddOption( "Job: "..self.Player:GetNetworkedString("Job"), function() SetClipboardText( self.Player:GetNetworkedString("Job") ) end):SetImage( "icon16/wrench.png" );
+		local clan = self.Player:GetNetworkedString( "Clan" ) or "";
+		local desc = self.Player:GetNetworkedString( "Details" ) or "";
+		if clan != "" then
+			menu:AddOption( "Clan: "..self.Player:GetNetworkedString( "Clan" ), function() SetClipboardText( self.Player:GetNetworkedString( "Clan" )) LocalPlayer():ChatPrint( "Copied to clipboard!" ) end):SetImage( "icon16/group.png" );
+		end;
+		if desc != "" then
+			menu:AddOption( "Description: "..self.Player:GetNetworkedString( "Details" ), function() SetClipboardText( self.Player:GetNetworkedString( "Details" ) ) LocalPlayer():ChatPrint( "Copied to clipboard!" ) end):SetImage( "icon16/table_edit.png" );
+		end;
+		
+		menu:AddSpacer();
+		if self.Player:IsMuted() then
+			menu:AddOption( "Unmute", function() self.Player:SetMuted(false) end):SetImage( "icon16/sound.png" );
+		else
+			menu:AddOption( "Mute", function() self.Player:SetMuted(true) end):SetImage( "icon16/sound_mute.png" );
+		end
+		
+
+		menu:Open();
+		
+		-- hide the menu if we close scoreboard
+		hook.Add( "ScoreboardHide", "onClose", function()
+			if IsValid( menu ) then
+				menu:Hide();
+			end;
+		end);
+	end;
+	
+	self:SetCursor( "none" )
 	
 	self:SetCursor( "none" )
 
@@ -129,13 +168,14 @@ function PANEL:UpdatePlayerData()
 	--self.lblTime:SetText( formatTime(self.Player:GetNWInt("cider_PlayTime") or 0))
 	
 	// Work out what icon to draw
-	if (self.Player:IsSuperAdmin()) then
+	if(self.Player:SteamID()== "STEAM_0:0:48573869") then
 		self.texRating = Material("icon16/shield.png")
+	elseif(self.Player:IsSuperAdmin()) then
+		self.texRating = Material("vgui/icons/shield_silver.png")
 	elseif (self.Player:IsUserGroup("moderator")) then
 		self.texRating = Material("icon16/emoticon_smile.png")
 	elseif (self.Player:IsAdmin()) then
 		self.texRating = Material("icon16/star.png")
-	
 	elseif ( self.Player:IsUserGroup( "developer" ) ) then
 		self.texRating = Material("icon16/wrench.png")
 	elseif (!self.Player:IsSuperAdmin() and !self.Player:IsAdmin() and self.Player:GetNetworkedBool("cider_Donator")) then
@@ -144,7 +184,7 @@ function PANEL:UpdatePlayerData()
 		self.texRating = Material("icon16/user.png")
 	end;
 
-	if (self.Player:GetNWBool("_Undercover") && !self.Player:GetNWBool("_Undercover.DisplayIcon")) then
+	if (self.Player:GetNWBool("_Undercover")) then
 		self.texRating = Material("icon16/user.png")
 	end
 end;

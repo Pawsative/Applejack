@@ -18,7 +18,7 @@ local	ents, player, pairs, ipairs, draw, math, string, CurTime, ErrorNoHalt, Col
 --Solid Colours
 color_green =			Color(050, 255, 050, 255)
 color_red =				Color(255, 050, 050, 255)
-color_orange =			Color(255, 125, 000, 255)
+color_orange =			Color(255, 125, 000, 255)///
 color_brightgreen =		Color(125, 255, 050, 255)
 color_purpleblue =		Color(125, 050, 255, 255)
 color_purple = 			Color(150, 075, 200, 255)

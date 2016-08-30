@@ -22,7 +22,7 @@ function PANEL:Init()
 	self.Hostname:SetText( GetGlobalString( "ServerName" ) )
 	
 	self.Description = vgui.Create( "DLabel", self )
-	self.Description:SetText( GAMEMODE.Name .. " - Kudomiku, Lexic" )
+	self.Description:SetText( "CityRP - www.FirstClassRoleplay.net" )
 	
 	self.PlayerFrame = vgui.Create( "PlayerFrame", self )
 	
