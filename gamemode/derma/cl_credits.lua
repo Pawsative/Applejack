@@ -16,7 +16,6 @@ Lexi - Vast swathes of improvements to the script, going with the philosophy tha
 Pawsative - Conversion of the Gamemode.
 rayts - Conversion of the Gamemode.
 Int64 - Conversion of the Gamemode.
-
 ]]
 
 -- Called when the panel is initialized.

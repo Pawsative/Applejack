@@ -1,11 +1,9 @@
---[[
-	~ Serverside Config ~
-	~ Applejack ~
---]]
+RP_MySQLConfig = {}
 
---Remove the commented out lines
-GM.Config["MySQL Host"] = "localhost"; -- The host that your MySQL database is located.
-GM.Config["MySQL Username"] = "cityrp"; -- The username that you log into MySQL with.
-GM.Config["MySQL Password"] = "[jp>u=jmEP(7kb(g/texx/ex#$%]}|xF@/7X']_RJ#2-tN?,ZrTs?y8]J(QDk"; -- The password that you log into MySQL with.
-GM.Config["MySQL Database"] = "cityrp"; -- The name of the database that we'll be using.
-GM.Config["MySQL Table"] = "players"; -- The name of the table where the player data is stored.
+RP_MySQLConfig.EnableMySQL = true
+RP_MySQLConfig.Host = "31.220.17.165"
+RP_MySQLConfig.Username = "rever812_cpurge"
+RP_MySQLConfig.Password = "w6b5G=Jr_EdEYp-9"
+RP_MySQLConfig.Database_name = "rever812_cpurge"
+RP_MySQLConfig.Database_port = 3306
+RP_MySQLConfig.Preferred_module = "tmysql4"

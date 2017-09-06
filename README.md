@@ -1,33 +1,18 @@
-##IMPORTANT:
-I will no longer be giving support for this gamemode, unless a Garry's Mod update breaks it. As of 1/6/2016 I have tested it, and it works as intended. Like seriously, I'm 100% not supporting this anymore, I have too much stuff to deal with so please stop adding me. It's working as intended on 5/22/2016.
+# Applejack:
+	Applejack is an old 'CityRP' gamemode, based on Cider that was made by kurozael and edited by Lexi.
+	If you're wanting to start a 'CityRP' server, you probably should just make your own gamemode instead of editing a 7 year old gamemode.
 
-# Important:
-You will need a MySQL database, and MySQLOO V9.
+# Setup:
+This gamemode is using FPTje's MySQLite module, so you can just install the gamemode like normal & use it, if you want to use MySQL edit sv_config.lua, I have made it alot easier for you to use this gamemode because it was already too hard!
 
-You can get MySQLOO from here:
-https://facepunch.com/showthread.php?t=1357773
-
-IF YOU ARE ON LINUX, YOU WILL NEED libmysqlclient
-
-#Setup:
-Make sure the folder name is applejack, not applejack-master, and put the folder into /gamemodes/ in your gmod directory.
-Edit the sh_config.lua and sv_config.lua to your liking.
-
-----------------------------------------------------
-Login to PHPMyAdmin, make a new user + database, and import the players.sql
-After doing that, open up your sh_config.lua, and fill in the details. Do not touch the "players" part, as importing the .sql does that automatically.
-
-If you get any errors, it's probarly because you didn't setup your SQL correctly.
-----------------------------------------------------
-
-(You'll also need libmysql, you can get that from the same place as MySQLOO)
-
-#Extra:
-You will need evolve or exsto (for now) for this gamemode to work properly, and I'll be activly working on this.
-
-If you need help, feel free to PM me on facepunch. 
-
-Please stop trying to sell this gamemode.
-
-##IMPORTANT:
-I will no longer be giving support for this gamemode, unless a Garry's Mod update breaks it. As of 1/6/2016 I have tested it, and it works as intended.
+# Support:
+	I'll support this gamemode for a little while, add me on steam for help; http://steamcommunity.com/id/Pawsativehi
+	
+# Credits:
+	FPTje - His MySQLite module
+	kurozael (Conna) - Made the core systems of Cider, populated it with items and released it.
+	Lexi - Vast swathes of improvements to the script, going with the philosophy that "Light RP doesn't have to be shit."
+	Pawsative - Conversion of the gamemode
+	rayts - Conversion of the gamemode
+	Int64 - Conversion of the gamemode
+	

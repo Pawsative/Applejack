@@ -4,6 +4,8 @@ Product: "Cider (Roleplay)"
 --]]
 
 -- FUCKING EVOLVE.
+
+--[[
 function chat.AddText(...)
 	local str = "[Admin] ";
 	for _, word in pairs{...} do
@@ -19,6 +21,7 @@ function chat.AddText(...)
 	GAMEMODE:AddNotify(str, 0, 10);
 	print(str);
 end
+]]--
 
 cider.chatBox = {};
 

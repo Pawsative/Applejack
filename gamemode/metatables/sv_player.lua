@@ -640,6 +640,7 @@ function meta:LoadData()
 	ply.cider = {
 		_Name = ply:Name(),
 		_Misc = {},
+		_Key = 0,
 		_RPName = GM.Config["Default rpname"],
 		_Clan = GM.Config["Default Clan"],
 		_Money = GM.Config["Default Money"],
@@ -650,8 +651,11 @@ function meta:LoadData()
 		_Arrested = false,
 		_Inventory = {},
 		_Blacklist = {},
+		_PurgeWins = 0,
+		_PurgeKills = 0,
+		_Created = os.time();
 	}
-	GAMEMODE:Query("SELECT * FROM " .. GM.Config["MySQL Table"] .. " WHERE _UniqueID = " .. self:UniqueID(), function(r, s, e)
+	GAMEMODE:Query("SELECT * FROM " .. ( RP_MySQLConfig.Database_table or "players" ) .. " WHERE _UniqueID = " .. self:UniqueID(), function(r, s, e)
 		if (not IsValid(ply)) then
 			return
 		elseif (type(r) == "table" and #r > 0) then -- If we've got a result, then call the loadfunc
@@ -685,7 +689,8 @@ local function getKVs(ply)
 	end
 	ply.cider._Misc.EquippedWeapons = tab
 	for k,v in pairs(ply.cider) do
---		print(k,v)
+		if k == "_Inventory" then continue end
+		--print(k,v)
 		value = nil;
 		if (player.saveIgnoreKeys[k]) then
 --			print"ignoran"
@@ -703,7 +708,7 @@ local function getKVs(ply)
 			end
 		elseif (player.saveEscapeKeys[k]) then
 --			print"escapan"
-			value = GAMEMODE.DB:escape(tostring(v));
+			value = v;
 		else
 --			print"strang"
 			value = tostring(v);
@@ -720,7 +725,7 @@ end
 -- Creates a CREATE query to make a new entry in the SQL DB and returns it
 local function createCreateQuery(ply)
 	local keys,values = getKVs(ply);
-	local query = "INSERT INTO "..GM.Config["MySQL Table"].." (";
+	local query = "INSERT INTO "..( RP_MySQLConfig.Database_table or "players" ).." (";
 	for _, key in pairs(keys) do
 		query = query .. key .. ", ";
 	end
@@ -735,7 +740,7 @@ end
 -- Creates an UPDATE query and returns it
 local function createUpdateQuery(ply)
 	local keys,values = getKVs(ply);
-	local query = "UPDATE "..GM.Config["MySQL Table"].." SET ";
+	local query = "UPDATE "..( RP_MySQLConfig.Database_table or "players" ).." SET ";
 	for i = 1, #keys do
 		query = query .. keys[i] .. ' = "' .. values[i] .. '", ';
 	end
@@ -865,6 +870,10 @@ end
 function meta:GiveMoney(amount)
 	self.cider._Money = math.max(self.cider._Money + amount, 0);
 	SendUserMessage("MoneyAlert", self, amount);
+	
+	if amount > 5000 then // stops $1 spam.
+		MySQLite.query("UPDATE `players` SET `_Money` = "..SQLStr(self.cider._Money).." WHERE `_SteamID` = "..SQLStr(self:SteamID()))
+	end
 end
 umsg.PoolString("MoneyAlert");
 

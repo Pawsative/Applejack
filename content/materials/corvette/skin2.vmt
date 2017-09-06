@@ -1,6 +1,0 @@
-"vertexLitGeneric"
-{
-	"$basetexture" "corvette/skin2"
-	"$envmap" "env_cubemap"
-	"$envmaptint" "[ .3 .3 .3 ]"
-}

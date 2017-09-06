@@ -651,7 +651,8 @@ cider.command.add("description", "b", 0, function(ply, ...)
 		ply:Notify("You have changed your clan to '"..text.."'.");
 		GM:Log(EVENT_EVENT, "%s changed "..ply._GenderWord.." details to %q.",ply:Name(),text)
 	end
-	ply:SaveData()
+	MySQLite.query("UPDATE `players` SET `_Description` = "..SQLStr(words).." WHERE `_SteamID` = "..SQLStr(ply:SteamID()))
+	--ply:SaveData()
 end, "Commands", "[text|none]", "Change your description or remove your current one.",true);
 
 
@@ -669,7 +670,8 @@ cider.command.add("clan", "b", 0, function(ply, ...)
 	else
 		ply:Notify("You have set your clan to '"..text.."'.");
 	end
-	ply:SaveData()
+	--ply:SaveData()
+	MySQLite.query("UPDATE `players` SET `_Clan` = "..SQLStr(words).." WHERE `_SteamID` = "..SQLStr(ply:SteamID()))
 end, "Commands", "[text|quit|none]", "Change your clan or quit your current one.",true);
 
 cider.command.add("rpname", "b", 0, function(ply, ...)
@@ -681,7 +683,8 @@ cider.command.add("rpname", "b", 0, function(ply, ...)
 	ply:SetNWString("RPName", words);
 	GM:Log(EVENT_EVENT, "%s set their RPName to %q.", ply:Name(), words);
 		ply:Notify("You have set your RPName to '" .. words .. "'.", 0);
-	ply:SaveData()
+	--ply:SaveData()
+	MySQLite.query("UPDATE `players` SET `_RPName` = "..SQLStr(words).." WHERE `_SteamID` = "..SQLStr(ply:SteamID()))
 end, "Commands", "[text]", "Change your RPName.",true);
 -- A command to change your gender.
 cider.command.add("gender", "b", 1, function(ply, gender)

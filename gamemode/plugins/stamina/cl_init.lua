@@ -3,9 +3,6 @@
 	~ Applejack ~
 --]]
 
--- Include the shared file.
-include("sh_init.lua");
-
 -- Called when the bottom bars should be drawn.
 function PLUGIN:DrawBottomBars(bar)
 	local stamina = LocalPlayer()._Stamina or 100;

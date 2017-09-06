@@ -1,6 +1,0 @@
-"VertexLitGeneric"
-{
-	"$basetexture" "models/props/gstand"
-	"$surfaceprop" "metal"
-	"$model" 1
-}

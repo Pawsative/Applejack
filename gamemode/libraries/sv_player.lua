@@ -46,14 +46,7 @@ player.loadKnownKeys = {
 -- SQL fields that require special functions applied to them. (Currently only inventory, there used to be others.)
 -- @usage player.loadFunctions["_Inventory"] = function(ply, data) ply._Inventory = data end
 player.loadFunctions = {
-	_Inventory =  function(ply, data)
-		string.gsub(data, "([^;%s]+): ([0-9]+)", function(item, amount)
-			if (GM.Items[item]) then
-				cider.inventory.update(ply, item, tonumber(amount), true);
-			else
-				ErrorNoHalt("Ignoring " .. amount .. " nonexistant '" .. item .. "' items in " .. ply:Name() .. "'s inventory.");
-			end
-		end)
+	_Inventory = function(ply, data)
 	end;
 	_Arrested = function(ply, data)
 		if (tobool(data)) then
@@ -167,9 +160,9 @@ function player.SaveAll(now)
 	local plys = player.GetAll();
 	saveallTimer(plys);
 	if (#plys == 0) then return end
-	timer.Create("Saving All Player Data", math.ceil(#plys / 5), 0, function()
-		saveallTimer(plys);
-	end)
+	------timer.Create("Saving All Player Data", math.ceil(#plys / 5), 0, function()
+		--saveallTimer(plys);
+	------end)
 end
 
 
@@ -186,9 +179,11 @@ function player.AddAutoCSVar(type, name)
 	autosendvars[name] = type;
 end
 
+--[[
 timer.Create("PlayerSaveTimer", 10, 0, function()
 	player.SaveAll()
 end)
+]]--
 
 local trup, trdown = Vector(0,0,10), Vector(0,0,-2147483648);
 local nextsec = CurTime();

@@ -3,15 +3,20 @@
 	~ Applejack ~
 --]]
 
--- Include the shared file and add it to the client download list.
-includecs("sh_init.lua");
-
 -- Called when a player spawns.
 function PLUGIN:PostPlayerSpawn(player, lightSpawn, changeTeam)
 	if (not lightSpawn) then
 		player._Stamina = 100;
 	end
 end
+
+function AntiJump(ply, bind, pressed)
+	local stamina = ply._Stamina or 0
+	if bind == "+jump" and pressed and stamina < 10 then
+		return true
+	end
+end
+hook.Add("PlayerBindPress", "AntiJump", AntiJump)
 
 -- Called when a player presses a key.
 function PLUGIN:KeyPress(player, key)
@@ -22,6 +27,8 @@ function PLUGIN:KeyPress(player, key)
 			end
 		end
 	end
+
+	AntiJump()
 end
 
 -- Called every tenth of a second that a player is on the server.
@@ -41,7 +48,7 @@ function PLUGIN:PlayerTenthSecond(player)
 				player._Stamina = math.Clamp(player._Stamina + GM.Config["Stamina Restore"], 0, 100);
 			end
 		end
-		
+
 		-- Check the player's stamina to see if it's at it's maximum.
 		if (player._Stamina <= 1) then
 		--	player:Incapacitate();
@@ -55,8 +62,8 @@ function PLUGIN:PlayerTenthSecond(player)
 		--	player:SetNWBool("Exausted", false)
 		end
 	end
-	
-	
+
+
 	-- Set it so that we can get the player's stamina client side.
 	player:SetCSVar(CLASS_LONG, "_Stamina", math.Round(player._Stamina) );
 end

@@ -5,7 +5,50 @@ Name: "sv_inventory.lua".
 
 cider.inventory = {};
 umsg.PoolString"cider_Inventory_Item";
-function cider.inventory.update(player, id, amount, force)
+
+cider.inventory.query = cider.inventory.query or {}
+
+
+function cider.inventory.query.get( player, callback )
+	local query = "SELECT * FROM cider_inventory WHERE steam_id = %s"
+
+	GM:Query( query:format( MySQLite.SQLStr( player:SteamID64() ) ), function( data, lastVal )
+		if callback then callback( data, lastVal ) end
+	end )
+end
+
+function cider.inventory.query.update( player, id, amount, callback )
+	local query = "INSERT INTO cider_inventory( steam_id, id, amount ) VALUES (%s, %s, %i) ON DUPLICATE KEY UPDATE amount = %i"
+
+	GM:Query( query:format( MySQLite.SQLStr( player:SteamID64() ), MySQLite.SQLStr( id ), amount, amount ), function( data, lastVal )
+		if callback then callback( data, lastVal ) end
+	end )
+end
+
+function cider.inventory.query.delete( player, id, callback )
+	local query = "DELETE FROM cider_inventory WHERE steam_id = %s AND id = %s"
+
+	GM:Query( query:format( MySQLite.SQLStr( player:SteamID64() ), MySQLite.SQLStr( id ) ), function( data, lastVal )
+		if callback then callback( data, lastVal ) end
+	end )
+end
+
+function cider.inventory.init( player )
+	cider.inventory.query.get( player, function( data )
+		if not data then return end
+
+		for _, item in pairs( data ) do
+			if GAMEMODE.Items[ item.id ] then
+			cider.inventory.update( player, item.id, item.amount, nil, true )
+			else
+				ErrorNoHalt("Ignoring " .. item.amount .. " nonexistant '" .. item.id .. "' items in " .. player:Name() .. "'s inventory.");
+			end
+		end
+	end )
+end
+hook.Add( "PlayerInitialSpawn", "inventory", cider.inventory.init )
+
+function cider.inventory.update(player, id, amount, force, noQuery )
 	if (type(amount) ~= "number") then
 		error("wat",2);
 	end
@@ -26,6 +69,19 @@ function cider.inventory.update(player, id, amount, force)
 		return false,"You can't carry any more "..item.plural.."!"
 	end
 	player.cider._Inventory[id] = math.Clamp(player.cider._Inventory[id] + amount,0,2147483647)
+
+	if not noQuery then
+		if player.cider._Inventory[id] < 1 then
+			cider.inventory.query.delete( player, id, function( data, lastVal )
+				--print( "removed cider inventory item", player, id)
+			end )
+		else
+			cider.inventory.query.update( player, id, player.cider._Inventory[id], function( data, lastVal )
+				--print( "updated cider inventory item", player, id, player.cider._Inventory[id])
+			end )
+		end
+	end
+
 	-- Check to see if we do not have any of this item now.
 	if (player.cider._Inventory[id] <= 0) then
 		if (amount > 0) then

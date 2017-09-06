@@ -337,7 +337,7 @@ function GM:Tick()
 	end
 end
 function GM:HUDPaintESP()
-	--Comments added due to request. Some things are fairly obvious, but it'd be nice if Garry did this with his stuff ¬_¬
+	--Comments added due to request. Some things are fairly obvious, but it'd be nice if Garry did this with his stuff ï¿½_ï¿½
 	if ( lpl:Alive() and not lpl._Sleeping ) then  --I hope this is obvious
 		local trace = lpl:GetEyeTrace() -- Send a trace down the center of the player's screen to see what they're looking at
 		local ent -- Set up an empty variable
@@ -603,13 +603,13 @@ function GM:DrawPlayerInformation()
 	local information = {};
 
 	-- Insert the player's information into the text table.
-	table.insert( text, {"Name: "..lpl:GetNetworkedString("RPName"), "gui/silkicons/wrench"} );
-	table.insert( text, {"Money: $"..string.Comma((lpl._Money or 0)), "gui/silkicons/star"} );
-	table.insert( text, {"Job: "..lpl:GetNetworkedString("Job"), "gui/silkicons/wrench"} );
-	table.insert( text, {"Salary: $"..(lpl._Salary or 0), "gui/silkicons/folder_go"} );
-	table.insert( text, {"Gender: "..(lpl._Gender or "Male"), "gui/silkicons/heart"} );
-	table.insert( text, {"Description: "..lpl:GetNetworkedString("Description"), "gui/silkicons/status_offline"});
-	table.insert( text, {"Clan: "..lpl:GetNetworkedString("Clan"), "gui/silkicons/group"} );
+	table.insert( text, {"Name: "..lpl:GetNetworkedString("RPName"), "icon16/wrench.png"} );
+	table.insert( text, {"Money: $"..string.Comma((lpl._Money or 0)), "icon16/star.png"} );
+	table.insert( text, {"Job: "..lpl:GetNetworkedString("Job"), "icon16/wrench.png"} );
+	table.insert( text, {"Salary: $"..(lpl._Salary or 0), "icon16/folder_go.png"} );
+	table.insert( text, {"Gender: "..(lpl._Gender or "Male"), "icon16/heart.png"} );
+	table.insert( text, {"Description: "..lpl:GetNetworkedString("Description"), "icon16/status_offline.png"});
+	--t--able.insert( text, {"Clan: "..lpl:, "icon16/group.png"} );
 
 
 	-- Loop through each of the text and adjust the width.
@@ -635,34 +635,35 @@ function GM:DrawPlayerInformation()
 	local y = ScrH() - height - 8;
 
 	-- Draw a rounded box to put the information text onto.
-	draw.RoundedBox( 2, x, y, width, height, color_black_alpha );
+	--draw.RoundedBox( 2, x, y, width, height, color_black_alpha );
 
 	-- Increase the x and y position by 8.
 	x = x + 8;
 	y = y + 8;
 
 	-- Draw the information on the box.
-	for k, v in pairs(information) do
-		if ( v[2] ) then
-			self:DrawInformation(v[1], "ChatFont", x + 24, y, color_white, 255, true);
-
+	--for k, v in pairs(information) do
+	--	if ( v[2] ) then
+	--		self:DrawInformation(v[1], "ChatFont", x + 24, y, color_white, 255, true);
+--
 			-- Draw the icon that respresents the text.
-			surface.SetTexture( surface.GetTextureID( v[2] ) );
-			surface.SetDrawColor(255, 255, 255, 255);
-			surface.DrawTexturedRect(x, y - 1, 16, 16);
-		else
-			self:DrawInformation(v[1], "ChatFont", x, y, color_white, 255, true);
-		end
+	--		surface.SetMaterial( Material( v[2] ) );
+	--		surface.SetDrawColor(255, 255, 255, 255);
+	--		surface.DrawTexturedRect(x, y - 1, 16, 16);
+	--	else
+	--		self:DrawInformation(v[1], "ChatFont", x, y, color_white, 255, true);
+	--	end
 
 
 		-- Increase the y position.
 		y = y + 18;
-	end
+	--end
 
 	-- Return the width and height of the box.
 	return width, height;
 end
 
+--[[
 -- Draw the health bar.
 function GM:DrawHealthBar(bar)
 	local health = math.Clamp(lpl:Health(), 0, 100);
@@ -676,8 +677,10 @@ function GM:DrawTimerBar(bar)
 	lpl._NextEnter = lpl._NextEnter or CurTime()
 	self:DrawBar("Default", bar.x, bar.y, bar.width, bar.height, color_orange_alpha, "Time Left: "..string.ToMinutesSeconds(math.floor(tonumber(lpl._JobTimeExpire)-CurTime())), 100, percento, bar);
 end
-
+]]--
 -- Draw the ammo bar.
+
+--[[
 function GM:DrawAmmoBar(bar)
 	local weapon = lpl:GetActiveWeapon();
 
@@ -703,9 +706,10 @@ function GM:DrawAmmoBar(bar)
 		end
 	end
 end
+]]--
 
 -- Called when the bottom bars should be drawn.
-function GM:DrawBottomBars(bar) end
+--function GM:DrawBottomBars(bar) end
 
 -- Called when the top text should be drawn.
 function GM:DrawTopText(text)
@@ -789,9 +793,9 @@ end
 function GM:HUDPaint()
 	self:HUDPaintESP()
 	if ( !self:IsUsingCamera() ) then
-		self:DrawInformation(self.Config["Website URL"], "ChatFont", ScrW(), ScrH(), color_white, 255, true, function(x, y, width, height)
-			return x - width - 8, y - height - 8;
-		end);
+		--self:DrawInformation(self.Config["Website URL"], "ChatFont", ScrW(), ScrH(), color_white, 255, true, function(x, y, width, height)
+			--return x - width - 8, y - height - 8;
+		--end);
 
 		-- Loop through the money alerts.
 		for k, v in pairs(self.moneyAlerts) do
@@ -816,15 +820,15 @@ function GM:HUDPaint()
 
 		-- Draw the player's health and ammo bars.
 		--if lpl:Health() < 80 then
-		self:DrawHealthBar(bar);
+		--self:DrawHealthBar(bar);
 		--end
-		self:DrawAmmoBar(bar);
-		if lpl._JobTimeExpire and tonumber(lpl._JobTimeExpire) > CurTime() then
-			self:DrawTimerBar(bar)
-		end
+		--self:DrawAmmoBar(bar);
+		--if lpl._JobTimeExpire and tonumber(lpl._JobTimeExpire) > CurTime() then
+		--	self:DrawTimerBar(bar)
+		--end
 		-- Call a hook to let plugins know that we're now drawing bars and text.
-		hook.Call("DrawBottomBars",GAMEMODE, bar);
-		hook.Call("DrawTopText",GAMEMODE, text);
+		--hook.Call("DrawBottomBars",GAMEMODE, bar);
+		--hook.Call("DrawTopText",GAMEMODE, text);
 
 		-- Set the position of the chat box.
 		cider.chatBox.position = {x = 8, y = math.min(bar.y + 20, ScrH() - height - 8) - 40};
@@ -888,6 +892,80 @@ function GM:HUDPaint()
 		self.BaseClass:HUDPaint();
 	end
 end
+
+surface.CreateFont("Main_HUD", { font = "Roboto Cn", size = 22 })
+
+local function DrawBar(x,y,w,h,text)
+    draw.RoundedBox(0,x,y,w,h,Color(21,21,21,180))
+    surface.SetDrawColor(color_black)
+    surface.DrawOutlinedRect(x, y, w, h)
+    
+	if text and not text == nil then
+		draw.SimpleText(text, "Main_HUD", 65, y + 24 , color_white, 0, 1)
+	end
+end
+
+
+local function NameTime()
+
+local txt
+	      
+if purge[GetGlobalString("State")] then
+		      txt = purge[GetGlobalString("State")].name.." "..SecondsToTime(GetGlobalVar("Timer"))
+end
+    return txt
+end
+
+function SecondsToTime(secs)
+           sSeconds = secs or 0
+           local nSeconds = sSeconds
+
+           if nSeconds == 0 then
+                   myTime = "00m 00s"
+                   return myTime
+           else
+                   nHours = string.format("%02.f", math.floor(nSeconds/3600));
+                   nMins = string.format("%02.f", math.floor(nSeconds/60 - (nHours*60)));
+                   nSecs = string.format("%02.f", math.floor(nSeconds - nHours*3600 - nMins *60));
+                   myTime = nHours .."h " .. nMins .. "m " .. nSecs .. "s"
+                   return myTime
+           end
+end
+
+local plus = 25
+hook.Add("HUDPaint", "ShowRGHUD", function()
+
+    local ply = LocalPlayer()
+    
+	--[[
+    DrawBar(15, ScrH()/2 * 1.4, 400, 50, "Name: "..ply:GetNetworkedString("RPName"))
+    DrawBar(15, ScrH()/2 * 1.495, 400, 50, "Job: "..ply:GetNetworkedString("Job"))
+    DrawBar(15, ScrH()/2 * 1.589, 400, 50, "Money: $"..string.Comma(ply._Money))
+    DrawBar(15, ScrH()/2 * 1.684, 400, 50, "Clan: "..ply:GetNetworkedString("Clan"))
+    DrawBar(15, ScrH()/2 * 1.778, 400, 50, "Desc: "..ply:GetNetworkedString("Description"))
+    DrawBar(15, ScrH()/2 * 1.873, 400, 50, NameTime())
+	]]--
+
+	DrawBar(0, ScrH() - 60, ScrW(), 60)
+	
+	surface.SetFont("Main_HUD");
+	local wn,hn = surface.GetTextSize("Name: "..ply:GetNetworkedString("RPName"))
+	
+	DrawBar(15, ScrH() - 49, wn + plus, 38)
+	draw.SimpleText("Name: "..ply:GetNetworkedString("RPName"), "Main_HUD", 25, ScrH() - 30, color_white, 0, 1)
+
+	surface.SetFont("Main_HUD");
+	local wj,hj = surface.GetTextSize("Job: "..ply:GetNetworkedString("Job"))
+	DrawBar(wn + ScrW()/2 - 228 * 4, ScrH() - 49, wj + plus, 38)
+	draw.SimpleText("Job: "..ply:GetNetworkedString("Job"), "Main_HUD", wn + ScrW()/2 - 226 * 4, ScrH() - 30, color_white, 0, 1)	
+	
+	surface.SetFont("Main_HUD");
+	local wc,hc = surface.GetTextSize("Clan: "..ply:GetNetworkedString("Clan"))
+	DrawBar(wj + wn + ScrW()/2 - 158 * 5.55, ScrH() - 49, wc + plus, 38)
+	draw.SimpleText("Clan: "..(ply:GetNetworkedString("Clan") or "No Clan!"), "Main_HUD", wj + wn + ScrW()/2 - 158 * 5.52, ScrH() - 30, color_white, 0, 1)	
+	
+end)
+
 
 -- Called to check if a player can use voice.
 function GM:PlayerCanVoice(player)
